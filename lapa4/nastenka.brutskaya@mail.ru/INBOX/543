@@ -1,0 +1,20 @@
+From: sender@example.com
+To: recipient@example.com
+Subject: Email with PDF Attachment
+Date: Wed, 10 May 2024 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="boundary123"
+
+--boundary123
+Content-Type: text/plain; charset="utf-8"
+
+Please find the attached PDF document.
+
+--boundary123
+Content-Type: application/pdf
+Content-Disposition: attachment; filename="example.pdf"
+Content-Transfer-Encoding: base64
+
+JVBERi0xLjQKJcfsj6IKNSAwIG9iago8PC9UeXBlIC9YcmVmL0NhdGFsb2cK... (encoded content here)
+
+--boundary123--

@@ -1,11 +1,6 @@
 import java.io.*;
 import java.net.*;
-import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,22 +34,19 @@ public class Main {
                             Matcher matcher = pattern.matcher(response);
 
                             if (matcher.find()) {
-                                String dateStr = matcher.group(1); // День в формате YY-MM-DD
-                                String timeStr = matcher.group(2); // Время в формате HH:mm:ss
+                                String dateStr = matcher.group(1);
+                                String timeStr = matcher.group(2);
 
-                                // Разбиваем день на компоненты
                                 String[] dateComponents = dateStr.split("-");
-                                int year = 2000 + Integer.parseInt(dateComponents[0]); // Добавляем 2000 год, предполагая, что YY - это 2000 + YY
-                                int month = Integer.parseInt(dateComponents[1]) - 1; // Месяцы в Calendar начинаются с 0
+                                int year = 2000 + Integer.parseInt(dateComponents[0]);
+                                int month = Integer.parseInt(dateComponents[1]) - 1;
                                 int day = Integer.parseInt(dateComponents[2]);
 
-                                // Разбиваем время на компоненты
                                 String[] timeComponents = timeStr.split(":");
                                 int hour = Integer.parseInt(timeComponents[0])+3;
                                 int minute = Integer.parseInt(timeComponents[1]);
                                 int second = Integer.parseInt(timeComponents[2]);
 
-                                // Создаем объект Calendar и устанавливаем в него день и время
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.set(year, month, day, hour, minute, second);
 
